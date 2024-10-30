@@ -1,7 +1,15 @@
 'use client';
 
-import { Box } from '@chakra-ui/react';
+import LinkCard from '@/components/ui/link-card';
+import { mockData } from '@/mockData';
+import { Stack } from '@chakra-ui/react';
 
 export default function App() {
-  return <Box color={{ base: 'primary.main', _dark: '#ffffff' }}>Hello World</Box>;
+  return (
+    <Stack>
+      {mockData.map(({ date, title, description, icon }, index) => {
+        return <LinkCard key={`link-card-${index}`} title={title} date={date} description={description} icon={icon} />;
+      })}
+    </Stack>
+  );
 }
