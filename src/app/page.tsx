@@ -1,14 +1,14 @@
 'use client';
 
 import LinkCard from '@/components/ui/link-card';
-import Search from '@/components/ui/search';
+import SearchInput from '@/components/ui/input/search-input';
 import { mockData } from '@/mockData';
 import { Stack } from '@chakra-ui/react';
 
 export default function App() {
   return (
     <Stack>
-      <Search />
+      <SearchInput />
       <Stack>
         {mockData.map(({ date, title, description, icon }, index) => {
           return (
