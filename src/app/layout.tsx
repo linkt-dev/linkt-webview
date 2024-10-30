@@ -1,5 +1,6 @@
 'use client';
 import { Provider } from '@/components/ui/provider';
+import { Container } from '@chakra-ui/react';
 
 export default function RootLayout({
   children,
@@ -9,7 +10,9 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <Provider>
-        <body>{children}</body>
+        <body>
+          <Container maxW="breakpoint-md">{children}</Container>
+        </body>
       </Provider>
     </html>
   );
