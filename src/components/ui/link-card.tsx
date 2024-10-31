@@ -15,7 +15,15 @@ export default function LinkCard(linkCardProps: ILinkCard) {
       <Text color="gray.700" mb="2px">
         {date}
       </Text>
-      <Card.Root borderRadius="md" bg="primary.main" color="white" p="8px 8px 8px 4px" flexDir="row" minH="70px">
+      <Card.Root
+        borderRadius="md"
+        border="none"
+        bg={{ _light: 'card.light', _dark: 'card.dark' }}
+        color={{ _light: 'text.light', _dark: 'text.dark' }}
+        p="8px 8px 8px 4px"
+        flexDir="row"
+        minH="70px"
+      >
         <Center w={{ sm: '80px', base: '80px' }}>
           <Image width={30} height={30} src={icon} alt="link-type-icon" />
         </Center>
