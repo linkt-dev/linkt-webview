@@ -13,7 +13,7 @@ export default function RootLayout({
     <html suppressHydrationWarning>
       <Provider>
         <body>
-          <Container maxW="breakpoint-md" marginTop="16px" bg={{ _light: 'bg.light', _dark: 'bg.dark' }}>
+          <Container maxW="breakpoint-md" paddingY="16px" bg={{ _light: 'bg.light', _dark: 'bg.dark' }}>
             {children}
 
             <AddLinkButton />
