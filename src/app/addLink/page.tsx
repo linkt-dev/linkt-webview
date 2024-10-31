@@ -4,6 +4,7 @@ import { Field } from '@/components/ui/field';
 import { Button, Fieldset, Input, Stack } from '@chakra-ui/react';
 import { SyntheticEvent, useState } from 'react';
 import { FormValueType, ILinkForm } from './type';
+import BaseInput from '@/components/ui/input/base-input';
 
 export default function AddLinkPage() {
   const [isUrlValid, setIsUrlValid] = useState<boolean | undefined>();
@@ -42,11 +43,11 @@ export default function AddLinkPage() {
 
         <Fieldset.Content>
           <Field label="이름">
-            <Input name="title" />
+            <BaseInput name="title" />
           </Field>
 
           <Field invalid={isUrlValid === false} label="URL" errorText="올바른 URL 을 입력해주세요." required>
-            <Input
+            <BaseInput
               name="url"
               type="url"
               onChange={(e) => {
@@ -56,7 +57,7 @@ export default function AddLinkPage() {
           </Field>
 
           <Field label="카테고리">
-            <Input name="category" />
+            <BaseInput name="category" />
           </Field>
         </Fieldset.Content>
 
