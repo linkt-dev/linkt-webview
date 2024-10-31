@@ -1,4 +1,5 @@
 'use client';
+import AddLinkButton from '@/components/ui/button/add-link-button';
 import { Provider } from '@/components/ui/provider';
 import { Container } from '@chakra-ui/react';
 
@@ -11,7 +12,11 @@ export default function RootLayout({
     <html suppressHydrationWarning>
       <Provider>
         <body>
-          <Container maxW="breakpoint-md">{children}</Container>
+          <Container maxW="breakpoint-md">
+            {children}
+
+            <AddLinkButton />
+          </Container>
         </body>
       </Provider>
     </html>
