@@ -6,7 +6,7 @@ const config = defineConfig({
       colors: {
         primary: { 
           main : {
-            value: "#1E2938" , 
+            value: "#FFBF1F" , 
 
           },
           

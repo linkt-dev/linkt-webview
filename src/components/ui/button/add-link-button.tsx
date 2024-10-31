@@ -7,7 +7,7 @@ export default function AddLinkButton() {
   return (
     <Link href="/addLink">
       <IconButton
-        bg="#ffbf1f"
+        bg="primary.main"
         position="fixed"
         bottom="36px"
         right="36px"
