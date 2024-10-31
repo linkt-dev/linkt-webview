@@ -12,7 +12,7 @@ export default function RootLayout({
     <html suppressHydrationWarning>
       <Provider>
         <body>
-          <Container maxW="breakpoint-md">
+          <Container maxW="breakpoint-md" marginTop="16px">
             {children}
 
             <AddLinkButton />

@@ -60,7 +60,7 @@ export default function AddLinkPage() {
           </Field>
         </Fieldset.Content>
 
-        <Button bg="#FFBF1F" type="submit" alignSelf="flex-start">
+        <Button bg="primary.main" type="submit" alignSelf="flex-start">
           추가
         </Button>
       </Fieldset.Root>
