@@ -21,11 +21,20 @@ const config = defineConfig({
           },
           300 : {
             value : '#3d4450'
+          },
+          400 : {
+            value : '#dadbdd'
+          },
+          500 : {
+            value : '2c2c34'
+          },
+          600 : {
+            value : '#28292e'
           }
         },
         blacked : {
           100 : {
-            value : '#18171c'
+            value : '#363640'
           },
           200 : {
             value : '#101012'
@@ -37,7 +46,7 @@ const config = defineConfig({
       colors : {
         bg : {
           light : {
-            value : "{colors.grey.100}"
+            value : "{colors.white}"
           },
           dark : {
             value : '{colors.blacked.200}'
@@ -45,7 +54,7 @@ const config = defineConfig({
         },
         card : {
           light : {
-            value : "{colors.white}"
+            value : "{colors.grey.100}"
           },
           dark : {
             value : '{colors.blacked.100}'
@@ -58,6 +67,32 @@ const config = defineConfig({
           dark : {
             value : "{colors.white}"
           }
+        },
+        button : {
+          light : {
+            DEFAULT :{
+              value:"{colors.grey.100}"
+            },
+            active : {
+              value : "{colors.grey.400}",
+            }
+          },
+          dark : {
+            DEFAULT : {
+              value : "{colors.blacked.100}"
+            } ,
+            active : {
+              value : "{colors.grey.600}"
+            }
+          }
+        },
+        buttonText : {
+          light : {
+            value : "{colors.grey.300}"
+          },
+          dark : {
+            value : "{colors.white}"
+          } 
         }
       }
  
