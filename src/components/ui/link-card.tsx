@@ -4,12 +4,11 @@ import Image from 'next/image';
 export interface ILinkCard {
   date: string;
   title: string;
-  description: string;
   icon: string;
 }
 
 export default function LinkCard(linkCardProps: ILinkCard) {
-  const { date, title, description, icon } = linkCardProps;
+  const { date, title, icon } = linkCardProps;
   return (
     <>
       <Text color="gray.700" mb="2px">
@@ -22,13 +21,12 @@ export default function LinkCard(linkCardProps: ILinkCard) {
         color={{ _light: 'text.light', _dark: 'text.dark' }}
         p="8px 8px 8px 4px"
         flexDir="row"
-        minH="70px"
       >
-        <Center w={{ sm: '80px', base: '80px' }}>
+        <Center w={{ sm: '60px', base: '50px' }}>
           <Image width={30} height={30} src={icon} alt="link-type-icon" />
         </Center>
 
-        <Box w={{ sm: '80%', base: '80%' }}>
+        <Box w={{ sm: '80%', base: '80%' }} alignSelf={'center'}>
           <Card.Title
             fontSize="sm"
             lineHeight="1.2"
@@ -36,14 +34,9 @@ export default function LinkCard(linkCardProps: ILinkCard) {
             textOverflow="ellipsis"
             whiteSpace="nowrap"
             lineClamp={2}
-            mb="4px"
           >
             {title}
           </Card.Title>
-
-          <Card.Description overflow="hidden" textOverflow="ellipsis" whiteSpace="nowrap" color="gray.300">
-            {description}
-          </Card.Description>
         </Box>
       </Card.Root>
     </>

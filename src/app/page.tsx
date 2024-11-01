@@ -14,10 +14,8 @@ export default function App() {
         <BaseButton>7/3</BaseButton>
       </Flex>
       <Stack>
-        {mockData.map(({ date, title, description, icon }, index) => {
-          return (
-            <LinkCard key={`link-card-${index}`} title={title} date={date} description={description} icon={icon} />
-          );
+        {mockData.map(({ date, title, icon }, index) => {
+          return <LinkCard key={`link-card-${index}`} title={title} date={date} icon={icon} />;
         })}
       </Stack>
     </Stack>
