@@ -1,7 +1,7 @@
 'use client';
 
 import { Field } from '@/components/ui/field';
-import { Button, Fieldset, Input, Stack } from '@chakra-ui/react';
+import { Button, Fieldset, Stack } from '@chakra-ui/react';
 import { SyntheticEvent, useState } from 'react';
 import { FormValueType, ILinkForm } from './type';
 import BaseInput from '@/components/ui/input/base-input';
