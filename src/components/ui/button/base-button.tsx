@@ -1,6 +1,5 @@
-import { system } from '@/theme';
 import { Button, ButtonProps } from '@chakra-ui/react';
-import { ReactNode, RefAttributes } from 'react';
+import { RefAttributes } from 'react';
 
 export default function BaseButton(props: ButtonProps & RefAttributes<HTMLButtonElement>) {
   return (
