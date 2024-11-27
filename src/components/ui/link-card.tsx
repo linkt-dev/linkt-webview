@@ -2,6 +2,7 @@ import { Box, Card, Center, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 
 export interface ILinkCard {
+  id: number;
   date: string;
   title: string;
   icon: string;
