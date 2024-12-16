@@ -5,7 +5,7 @@ export interface ILinkCard {
   id: number;
   date: string;
   title: string;
-  icon: string;
+  icon?: string;
 }
 
 export default function LinkCard(linkCardProps: ILinkCard) {
@@ -13,7 +13,7 @@ export default function LinkCard(linkCardProps: ILinkCard) {
   return (
     <>
       <Text color="gray.700" mb="2px">
-        {date}
+        {new Date(date).toLocaleDateString()}
       </Text>
       <Card.Root
         borderRadius="md"
@@ -23,9 +23,11 @@ export default function LinkCard(linkCardProps: ILinkCard) {
         p="8px 8px 8px 4px"
         flexDir="row"
       >
-        <Center w={{ sm: '60px', base: '50px' }}>
-          <Image width={30} height={30} src={icon} alt="link-type-icon" />
-        </Center>
+        {icon && (
+          <Center w={{ sm: '60px', base: '50px' }}>
+            <Image width={30} height={30} src={icon} alt="link-type-icon" />
+          </Center>
+        )}
 
         <Box w={{ sm: '80%', base: '80%' }} alignSelf={'center'}>
           <Card.Title
