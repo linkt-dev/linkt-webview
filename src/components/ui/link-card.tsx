@@ -1,17 +1,19 @@
 import { Box, Card, Center, Text } from '@chakra-ui/react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export interface ILinkCard {
   id: number;
+  index: number;
   date: string;
   title: string;
   icon?: string;
 }
 
 export default function LinkCard(linkCardProps: ILinkCard) {
-  const { date, title, icon } = linkCardProps;
+  const { date, title, icon, index } = linkCardProps;
   return (
-    <>
+    <Link href={`/link/${index + 1}`}>
       <Text color="gray.700" mb="2px">
         {new Date(date).toLocaleDateString()}
       </Text>
@@ -42,6 +44,6 @@ export default function LinkCard(linkCardProps: ILinkCard) {
           </Card.Title>
         </Box>
       </Card.Root>
-    </>
+    </Link>
   );
 }
