@@ -25,8 +25,8 @@ export const fetchContents = async (): Promise<AxiosResponse<ContentItem[]>> => 
   return result;
 };
 
-export const fetchContent = async (): Promise<AxiosResponse<ContentItem>> => {
-  const result = await authorizedApiRequester.get<ContentItem>('contents');
+export const fetchContent = async (id: number): Promise<AxiosResponse<ContentItem>> => {
+  const result = await authorizedApiRequester.get<ContentItem>(`contents/${id}`);
 
   return result;
 };
