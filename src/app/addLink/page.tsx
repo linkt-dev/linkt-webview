@@ -29,7 +29,7 @@ export default function AddLinkPage() {
       }
 
       const body = {
-        title: title.value === '' ? '무제' : (title.value as string),
+        title: title.value as string,
         link: link.value as string,
         category: category.value as string,
       };
