@@ -1,13 +1,11 @@
-import apiRequester from "./requester"
+import apiRequester from './requester';
 
 interface AuthResponse {
-    accessToken: string;
+  accessToken: string;
 }
 
-export const checkAuth = async (userId:string):Promise<AuthResponse>=>{
-    const { data } =  await apiRequester.post<AuthResponse>('/auth', {
-        userId
-    })
+export const checkAuth = async (): Promise<AuthResponse> => {
+  const { data } = await apiRequester.post<AuthResponse>('/auth');
 
-    return data;
-}
+  return data;
+};

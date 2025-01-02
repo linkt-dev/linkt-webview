@@ -11,19 +11,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  useAuth();
-  return (
-    <html suppressHydrationWarning>
-      <body>
-        <Provider>
-          <Container maxW="breakpoint-md" paddingY="16px" bg={{ _light: 'bg.light', _dark: 'bg.dark' }}>
-            {children}
+  const isUser = useAuth();
 
-            <AddLinkButton />
-            <ColorModeButton position="fixed" bottom="90px" right="36px" size="lg" borderRadius="25%" />
-          </Container>
-        </Provider>
-      </body>
-    </html>
+  return (
+    isUser && (
+      <html suppressHydrationWarning>
+        <body>
+          <Provider>
+            <Container maxW="breakpoint-md" paddingY="16px" bg={{ _light: 'bg.light', _dark: 'bg.dark' }}>
+              {children}
+
+              <AddLinkButton />
+              <ColorModeButton position="fixed" bottom="90px" right="36px" size="lg" borderRadius="25%" />
+            </Container>
+          </Provider>
+        </body>
+      </html>
+    )
   );
 }
