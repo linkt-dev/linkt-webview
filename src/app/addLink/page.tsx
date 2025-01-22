@@ -7,6 +7,7 @@ import { FormValueType } from './type';
 import BaseInput from '@/components/ui/input/base-input';
 import { Content, createContent } from '@/api/content';
 import Form from 'next/Form';
+import { handleApiError } from '@/utils/handleApiError';
 
 export default function AddLinkPage() {
   const [isUrlValid, setIsUrlValid] = useState<boolean | undefined>();
@@ -36,8 +37,9 @@ export default function AddLinkPage() {
 
       await createContent(body);
     } catch (e: unknown) {
-      console.error(e);
-      alert('링크 추가에 실패하였습니다.');
+      const { errorMessage } = handleApiError(e);
+
+      alert(errorMessage);
     }
   };
 
