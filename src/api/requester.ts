@@ -8,9 +8,7 @@ const apiRequester = axios.create({
 
 export const authorizedApiRequester = axios.create({
   baseURL: `https://dev-api.linkt.one/api/${API_VERSION}`,
-  headers: {
-    withCredentials: true,
-  },
+  withCredentials: true,
 });
 
 export default apiRequester;
