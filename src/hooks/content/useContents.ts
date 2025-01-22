@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 const useContents = () => {
   const [contents, setContents] = useState<ContentItem[]>([]);
+  const isContents = contents.length > 0;
   const formattedContents: ContentItem[] = contents.map((content) => {
     return {
       ...content,
@@ -25,7 +26,7 @@ const useContents = () => {
     })();
   }, []);
 
-  return { contentDates, filteredContents };
+  return { contentDates, filteredContents, isContents };
 };
 
 export default useContents;

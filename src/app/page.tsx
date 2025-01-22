@@ -1,23 +1,20 @@
 'use client';
 
 import ContentDateFilterButtons from '@/components/content/ContentDateFilterButtons';
-import LinkCard from '@/components/ui/link-card';
+import ContentsList from '@/components/content/ContentsList';
+import NoData from '@/components/content/NoData';
 import useContents from '@/hooks/content/useContents';
 import { Stack } from '@chakra-ui/react';
 import { useState } from 'react';
 
 export default function App() {
-  const { contentDates, filteredContents } = useContents();
+  const { contentDates, filteredContents, isContents } = useContents();
   const [targetDate, setTargetDate] = useState<string>('');
 
   return (
     <Stack>
       <ContentDateFilterButtons dates={contentDates} setTargetDate={setTargetDate} />
-      <Stack>
-        {filteredContents(targetDate).map(({ id, updatedAt, title }, index) => {
-          return <LinkCard id={id} index={index} key={`link-card-${index}`} title={title} date={updatedAt} />;
-        })}
-      </Stack>
+      {isContents ? <ContentsList contents={filteredContents(targetDate)} /> : <NoData />}
     </Stack>
   );
 }
