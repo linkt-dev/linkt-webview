@@ -11,9 +11,9 @@ export interface ILinkCard {
 }
 
 export default function LinkCard(linkCardProps: ILinkCard) {
-  const { date, title, icon, index } = linkCardProps;
+  const { date, title, icon, id } = linkCardProps;
   return (
-    <Link href={`/link/${index + 1}`}>
+    <Link href={`/link/${id}`}>
       <Text color="gray.700" mb="2px">
         {new Date(date).toLocaleDateString()}
       </Text>
