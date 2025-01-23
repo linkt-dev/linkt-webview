@@ -6,7 +6,7 @@ import { SyntheticEvent, useState } from 'react';
 import { FormValueType } from './type';
 import BaseInput from '@/components/ui/input/base-input';
 import { Content, createContent } from '@/api/content';
-import Form from 'next/Form';
+import Form from 'next/form';
 import { handleApiError } from '@/utils/handleApiError';
 
 export default function AddLinkPage() {
