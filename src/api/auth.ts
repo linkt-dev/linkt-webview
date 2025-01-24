@@ -11,3 +11,11 @@ export const checkAuth = async (userId: string): Promise<AuthResponse> => {
 
   return data;
 };
+
+export const refreshToken = async (userId: string): Promise<AuthResponse> => {
+  const { data } = await authorizedApiRequester.post<AuthResponse>('/auth/refresh', {
+    userId: userId,
+  });
+
+  return data;
+};

@@ -1,4 +1,7 @@
 import axios from 'axios';
+import { refreshToken } from './auth';
+import { browserStorage } from '@/utils/browserStorage';
+import { USER } from '@/constants/StorageData';
 
 const API_VERSION = 'v1';
 const baseApiUrl =
@@ -14,5 +17,18 @@ export const authorizedApiRequester = axios.create({
   baseURL: `${baseApiUrl}/${API_VERSION}`,
   withCredentials: true,
 });
+
+authorizedApiRequester.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const config = error?.config;
+
+    if (error?.response?.status === 401 && !config?.sent) {
+      await refreshToken(browserStorage.getData(USER)!);
+    }
+
+    return axios(config);
+  },
+);
 
 export default apiRequester;
