@@ -11,9 +11,9 @@ export interface ILinkCard {
 }
 
 export default function LinkCard(linkCardProps: ILinkCard) {
-  const { title, icon, id, link } = linkCardProps;
+  const { title, icon, link } = linkCardProps;
   return (
-    <Link href={`/link/${id}`}>
+    <Link href={link} target="_blank">
       <Card.Root
         borderRadius="md"
         border="none"
