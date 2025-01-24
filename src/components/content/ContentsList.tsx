@@ -5,8 +5,8 @@ import LinkCard from '../ui/link-card';
 const ContentsList = ({ contents }: { contents: ContentItem[] }) => {
   return (
     <Stack>
-      {contents.map(({ id, updatedAt, title }, index) => {
-        return <LinkCard id={id} index={index} key={`link-card-${index}`} title={title} date={updatedAt} />;
+      {contents.map((content, index) => {
+        return <LinkCard {...content} key={index} />;
       })}
     </Stack>
   );
