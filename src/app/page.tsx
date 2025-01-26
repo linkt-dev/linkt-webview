@@ -6,10 +6,10 @@ import { ContentsTab } from '@/components/content/Tab/ContentsTab';
 
 export default function App() {
   const { contentDates, isContents, contents } = useContents();
-  const today = new Date().toLocaleDateString();
+  const defaultValue = contents.length > 0 ? contents[0].createdAt : '';
 
   return isContents ? (
-    <ContentsTab.Root defaultValue={today}>
+    <ContentsTab.Root defaultValue={defaultValue}>
       <ContentsTab.Triggers contentDates={contentDates} />
       <ContentsTab.Content contents={contents} contentDates={contentDates} />
     </ContentsTab.Root>
