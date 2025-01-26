@@ -1,20 +1,19 @@
 'use client';
 
-import ContentDateFilterButtons from '@/components/content/ContentDateFilterButtons';
-import ContentsList from '@/components/content/ContentsList';
 import NoData from '@/components/content/NoData';
 import useContents from '@/hooks/content/useContents';
-import { Stack } from '@chakra-ui/react';
-import { useState } from 'react';
+import { ContentsTab } from '@/components/content/Tab/ContentsTab';
 
 export default function App() {
-  const { contentDates, filteredContents, isContents } = useContents();
-  const [targetDate, setTargetDate] = useState<string>('');
+  const { contentDates, isContents, contents } = useContents();
+  const today = new Date().toLocaleDateString();
 
-  return (
-    <Stack>
-      <ContentDateFilterButtons dates={contentDates} setTargetDate={setTargetDate} />
-      {isContents ? <ContentsList contents={filteredContents(targetDate)} /> : <NoData />}
-    </Stack>
+  return isContents ? (
+    <ContentsTab.Root defaultValue={today}>
+      <ContentsTab.Triggers contentDates={contentDates} />
+      <ContentsTab.Content contents={contents} contentDates={contentDates} />
+    </ContentsTab.Root>
+  ) : (
+    <NoData />
   );
 }

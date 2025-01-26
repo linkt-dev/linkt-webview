@@ -12,13 +12,6 @@ const useContents = () => {
   });
   const contentDates = Array.from(new Set(formattedContents.map((link) => link.createdAt)));
 
-  const filteredContents = (targetDate: string) => {
-    if (targetDate === '') {
-      return [...formattedContents];
-    }
-    return [...formattedContents].filter(({ createdAt }) => createdAt === targetDate);
-  };
-
   useEffect(() => {
     (async () => {
       const result = await fetchContents();
@@ -26,7 +19,7 @@ const useContents = () => {
     })();
   }, []);
 
-  return { contentDates, filteredContents, isContents };
+  return { contents: formattedContents, contentDates, isContents };
 };
 
 export default useContents;
