@@ -25,9 +25,11 @@ authorizedApiRequester.interceptors.response.use(
 
     if (error?.response?.status === 401 && !config?.sent) {
       await refreshToken(browserStorage.getData(USER)!);
+
+      return axios(config);
     }
 
-    return axios(config);
+    return Promise.reject(error);
   },
 );
 
