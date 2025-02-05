@@ -1,6 +1,6 @@
 import { checkAuth } from '@/api/auth';
 import { createUser } from '@/api/user';
-import { USER } from '@/constants/StorageData';
+import { EXPO_PUSH_TOKEN, USER } from '@/constants/StorageData';
 import { browserStorage } from '@/utils/browserStorage';
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from 'react';
@@ -22,7 +22,8 @@ const useAuth = () => {
   const createNewUser = async () => {
     try {
       const newUuid = uuidv4().toString();
-      const { userId } = await createUser(newUuid);
+      const expoPushToken = sessionStorage.getItem(EXPO_PUSH_TOKEN)!;
+      const { userId } = await createUser(newUuid, expoPushToken);
 
       if (userId) {
         browserStorage.storeData(USER, userId);
