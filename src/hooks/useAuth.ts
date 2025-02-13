@@ -27,6 +27,7 @@ const useAuth = () => {
 
       if (userId) {
         browserStorage.storeData(USER, userId);
+        login();
         setIsUser(true);
       }
     } catch (e) {
