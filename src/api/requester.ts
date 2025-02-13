@@ -11,6 +11,7 @@ const baseApiUrl =
 
 const apiRequester = axios.create({
   baseURL: `${baseApiUrl}/${API_VERSION}`,
+  withCredentials: true,
 });
 
 export const authorizedApiRequester = axios.create({

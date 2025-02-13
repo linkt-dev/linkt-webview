@@ -1,4 +1,4 @@
-import { authorizedApiRequester } from './requester';
+import apiRequester, { authorizedApiRequester } from './requester';
 
 interface AuthResponse {
   accessToken: string;
@@ -13,7 +13,7 @@ export const checkAuth = async (userId: string): Promise<AuthResponse> => {
 };
 
 export const refreshToken = async (userId: string): Promise<AuthResponse> => {
-  const { data } = await authorizedApiRequester.post<AuthResponse>('/auth/refresh', {
+  const { data } = await apiRequester.post<AuthResponse>('/auth/refresh', {
     userId: userId,
   });
 
