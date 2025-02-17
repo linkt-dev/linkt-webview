@@ -23,6 +23,7 @@ const useAuth = () => {
     try {
       const newUuid = uuidv4().toString();
       const expoPushToken = sessionStorage.getItem(EXPO_PUSH_TOKEN)!;
+      alert(expoPushToken);
       const { userId } = await createUser(newUuid, expoPushToken);
 
       if (userId) {
