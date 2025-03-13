@@ -44,7 +44,9 @@ const useAuth = () => {
       return;
     }
 
-    createNewUser();
+    setTimeout(() => {
+      createNewUser();
+    }, 1000);
   }, []);
 
   return isUser;
