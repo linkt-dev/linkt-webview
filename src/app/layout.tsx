@@ -5,7 +5,9 @@ import { ColorModeButton } from '@/components/ui/color-mode';
 import { Provider } from '@/components/ui/provider';
 import useAuth from '@/hooks/useAuth';
 
-import { Container } from '@chakra-ui/react';
+import { Button, Container } from '@chakra-ui/react';
+import { USER } from '@/constants/StorageData';
+import { browserStorage } from '@/utils/browserStorage';
 
 export default function RootLayout({
   children,
@@ -17,6 +19,14 @@ export default function RootLayout({
     <html suppressHydrationWarning>
       <body>
         <Provider>
+          <Button
+            onClick={() => {
+              if (browserStorage.getData(USER)) browserStorage.removeData(USER);
+            }}
+          >
+            initialize local data
+          </Button>
+
           {isUser && (
             <Container maxW="breakpoint-md" paddingY="16px" bg={{ _light: 'bg.light', _dark: 'bg.dark' }}>
               {children}

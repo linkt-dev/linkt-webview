@@ -2,13 +2,13 @@
 type LocalStorageDataType<T> = T extends object ? T : string;
 
 export const browserStorage = {
-  storeData: (key:string, value: any) => {
-    if(typeof window !== undefined){
+  storeData: (key: string, value: any) => {
+    if (typeof window !== undefined) {
       localStorage.setItem(key, typeof value === 'object' ? JSON.stringify(value) : value);
     }
   },
-  getData: <T>(key:string):LocalStorageDataType<T> | null => {
-    if(typeof window === undefined){
+  getData: <T>(key: string): LocalStorageDataType<T> | null => {
+    if (typeof window === undefined) {
       return null;
     }
     try {
@@ -18,5 +18,10 @@ export const browserStorage = {
       const value = localStorage.getItem(key);
       return value as LocalStorageDataType<T>;
     }
-  }
-}
+  },
+  removeData: (key: string) => {
+    if (typeof window !== undefined) {
+      localStorage.removeItem(key);
+    }
+  },
+};
