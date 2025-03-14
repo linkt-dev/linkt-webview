@@ -23,10 +23,11 @@ const useAuth = () => {
     try {
       const newUuid = uuidv4().toString();
       const expoPushToken = sessionStorage.getItem(EXPO_PUSH_TOKEN)!;
-      alert(expoPushToken);
+
       const { userId } = await createUser(newUuid, expoPushToken);
 
       if (userId) {
+        alert(`new ${userId} made with ${expoPushToken}`);
         browserStorage.storeData(USER, userId);
         login();
         setIsUser(true);
