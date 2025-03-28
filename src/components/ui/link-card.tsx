@@ -1,4 +1,4 @@
-import { Box, Card, Center } from '@chakra-ui/react';
+import { Card, Center } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,15 +23,15 @@ export default function LinkCard(linkCardProps: ILinkCard) {
         flexDir="row"
         gap="2"
       >
-        <Box w="55px" h="55px">
-          {faviconUrl ? (
+        {faviconUrl ? (
+          <Center w="55px" h="55px">
             <Image width={30} height={30} src={faviconUrl} alt="link-type-icon" />
-          ) : (
-            <Center w="full" h="full" borderRadius="8px" bg="grey.200" fontSize="xl">
-              {title.charAt(0)}
-            </Center>
-          )}
-        </Box>
+          </Center>
+        ) : (
+          <Center w="55px" h="55px" borderRadius="8px" bg="grey.200" fontSize="xl">
+            {title.charAt(0)}
+          </Center>
+        )}
 
         <Card.Body w="80%" p={0} h="55px">
           <Card.Title
