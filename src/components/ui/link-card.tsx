@@ -6,12 +6,12 @@ export interface ILinkCard {
   id: number;
   updatedAt?: string;
   title: string;
-  icon?: string;
+  faviconUrl?: string;
   link: string;
 }
 
 export default function LinkCard(linkCardProps: ILinkCard) {
-  const { title, icon, link } = linkCardProps;
+  const { title, faviconUrl, link } = linkCardProps;
   return (
     <Link href={link} target="_blank">
       <Card.Root
@@ -24,8 +24,8 @@ export default function LinkCard(linkCardProps: ILinkCard) {
         gap="2"
       >
         <Box w="55px" h="55px">
-          {icon ? (
-            <Image width={30} height={30} src={icon} alt="link-type-icon" />
+          {faviconUrl ? (
+            <Image width={30} height={30} src={faviconUrl} alt="link-type-icon" />
           ) : (
             <Center w="full" h="full" borderRadius="8px" bg="grey.200" fontSize="xl">
               {title.charAt(0)}
